@@ -7,11 +7,16 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+    fontSize: {
+      sm: ["14px", "20px"],
+      base: ["16px", "24px"],
+      lg: ["20px", "28px"],
+      xl: ["24px", "32px"],
+    },
+    colors: {
+      white: "#FFFFFF",
+      dark: "#2C2C2C",
+      gold: "#FFD700",
     },
   },
   plugins: [],

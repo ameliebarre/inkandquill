@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
+import { DM_Serif_Text, DM_Sans } from "next/font/google";
 import Header from "./_components/Header";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+export const dm_serif_text = DM_Serif_Text({
+  weight: ["400"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-dm-serif",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+export const dm_sans = DM_Sans({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-dm-sans",
 });
 
 export const metadata: Metadata = {
@@ -25,10 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html
+      lang="en"
+      className={`${dm_sans.variable} ${dm_serif_text.variable} font-sans`}
+    >
+      <body>
         <Header />
         {children}
       </body>

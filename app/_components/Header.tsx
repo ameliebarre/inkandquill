@@ -1,8 +1,13 @@
+import Link from "next/link";
+import { dm_serif_text } from "../fonts";
+
 export default function Header() {
   return (
     <header className="px-[52px] py-9 flex items-center justify-between">
-      <h1 className="text-2xl">
-        Ink<span className="text-amber-400">&</span>Quill
+      <h1 className="text-2xl text-dark">
+        <Link href="/" className={`${dm_serif_text.className}`}>
+          Ink<span className="text-amber-400">&</span>Quill
+        </Link>
       </h1>
       <form className="w-[668px] mx-auto">
         <label
@@ -40,12 +45,6 @@ export default function Header() {
             </svg>
           </button>
         </div>
-        {/* <input
-          className="border border-solid border-dark w-1/2"
-          type="text"
-          name="search"
-        />
-        <button type="submit">Submit</button> */}
       </form>
     </header>
   );

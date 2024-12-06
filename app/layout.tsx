@@ -1,21 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { DM_Serif_Text, DM_Sans } from "next/font/google";
 import Header from "./_components/Header";
-
-export const dm_serif_text = DM_Serif_Text({
-  weight: ["400"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-dm-serif",
-});
-
-export const dm_sans = DM_Sans({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-dm-sans",
-});
+import Footer from "./_components/Footer";
+import { dm_sans, dm_serif_text } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -35,6 +22,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

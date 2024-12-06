@@ -11,7 +11,6 @@ export default {
     extend: {
       colors: {
         dark: "#2C2C2C",
-        gold: "#FFD700",
       },
       fontFamily: {
         sans: ["var(--font-dm-sans)"],
@@ -19,6 +18,7 @@ export default {
       },
     },
     fontSize: {
+      xs: ["12px", "16px"],
       sm: ["14px", "20px"],
       base: ["16px", "24px"],
       lg: ["20px", "28px"],

@@ -23,6 +23,7 @@ export default function RootLayout({
       <body>
         <main>
           <Header />
+          {/* @ts-expect-error Server Component */}
           <Navbar />
           {children}
           <Footer />

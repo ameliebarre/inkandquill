@@ -74,7 +74,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="flex flex-col gap-y-6 bg-dark py-6 fixed bottom-0 w-full px-[52px] text-white">
+    <footer className="flex flex-col gap-y-6 bg-dark py-6 w-full px-[52px] text-white">
       <h1 className={`${dm_serif_text.className} text-lg`}>
         <Link href="/">
           Ink<span className="text-amber-400">&</span>Quill

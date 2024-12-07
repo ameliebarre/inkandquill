@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 import { dm_sans, dm_serif_text } from "./fonts";
+import Navbar from "./_components/Navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,9 +21,12 @@ export default function RootLayout({
       className={`${dm_sans.variable} ${dm_serif_text.variable} font-sans`}
     >
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <main>
+          <Header />
+          <Navbar />
+          {children}
+          <Footer />
+        </main>
       </body>
     </html>
   );

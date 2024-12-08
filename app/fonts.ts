@@ -8,7 +8,7 @@ export const dm_serif_text = DM_Serif_Text({
 });
 
 export const dm_sans = DM_Sans({
-  weight: ["400", "700"],
+  weight: ["200", "300", "400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
   variable: "--font-dm-sans",

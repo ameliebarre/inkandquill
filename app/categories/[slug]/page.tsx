@@ -19,20 +19,12 @@ export default async function CategoryPage({
 }: {
   params: { slug: string };
 }) {
-  console.log("PARAMS !! ", params);
   const category = await getCategoryBySlug(params.slug);
 
   return (
     <div className="px-[52px] min-w-[84%]">
       <div className="">
-        <Breadcrumb
-          homeElement={"Home"}
-          separator={<span>{">"}</span>}
-          activeClasses="text-amber-400"
-          containerClasses="flex text-sm gap-x-2"
-          listClasses="hover:underline"
-          capitalizeLinks
-        />
+        <Breadcrumb />
         <h2 className={`${dm_serif_text.className} text-2xl`}>
           {category.title}
         </h2>

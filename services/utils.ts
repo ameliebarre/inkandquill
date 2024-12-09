@@ -18,3 +18,9 @@ export async function fetchDataFromStrapi<T>(route: string): Promise<T> {
     throw new Error(`Could not fetch data from ${url}`);
   }
 }
+
+export function getImageURL(url: string) {
+  const BASE_URL = process.env.STRAPI_URL || "http://127.0.0.1:1337";
+
+  return `${BASE_URL}${url}`;
+}

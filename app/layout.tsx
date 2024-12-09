@@ -5,7 +5,7 @@ import Footer from "./_components/Footer";
 import { dm_sans, dm_serif_text } from "./fonts";
 import Navbar from "./_components/Navbar";
 import { Category } from "@/types/Category";
-import { fetchDataFromStrapi } from "@/utils/strapi.utils";
+import { fetchDataFromStrapi } from "@/services/utils";
 
 export const metadata: Metadata = {
   title: "Create Next App",

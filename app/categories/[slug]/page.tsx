@@ -1,8 +1,8 @@
 import Breadcrumb from "@/app/_components/Breadcrumb";
 import { dm_serif_text } from "@/app/fonts";
-import { getCategoryBySlug } from "@/data/loaders";
+import { getCategoryBySlug } from "@/services/category";
+import { fetchDataFromStrapi } from "@/services/utils";
 import { Category } from "@/types/Category";
-import { fetchDataFromStrapi } from "@/utils/strapi.utils";
 
 export async function generateStaticParams() {
   const categories: Category[] = await fetchDataFromStrapi("categories");
@@ -23,12 +23,10 @@ export default async function CategoryPage({
 
   return (
     <div className="px-[52px] min-w-[84%]">
-      <div className="">
-        <Breadcrumb />
-        <h2 className={`${dm_serif_text.className} text-2xl`}>
-          {category.title}
-        </h2>
-      </div>
+      <Breadcrumb />
+      <h2 className={`${dm_serif_text.className} text-2xl`}>
+        {category.title}
+      </h2>
     </div>
   );
 }

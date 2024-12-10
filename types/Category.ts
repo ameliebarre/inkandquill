@@ -6,21 +6,17 @@ export interface Category {
   text?: string | null;
   slug: string;
   featured: boolean;
-}
-
-interface CategorySectionBlockCategory {
-  id: number;
-  title: string;
-  books: Book[];
+  books?: Book[];
 }
 
 interface CategorySectionBlock {
   __component: string;
   id: string;
-  categories: {
-    id: number;
-    categories: CategorySectionBlockCategory[];
-  };
+  bookcategory: [
+    {
+      category: Category;
+    }
+  ];
 }
 
 export interface CategorySection {

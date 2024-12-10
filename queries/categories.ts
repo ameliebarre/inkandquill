@@ -7,13 +7,13 @@ export const getCategoriesQuery = (): string =>
         on: {
           "layout.categories-section": {
             populate: {
-              categories: {
+              bookcategory: {
                 populate: {
-                  categories: {
-                    fields: ["title"],
+                  category: {
+                    fields: ["title", "slug"],
                     populate: {
                       books: {
-                        fields: ["title", "author"],
+                        fields: ["title", "author", "isNewRelease"],
                         populate: {
                           image: {
                             fields: ["url", "alternativeText"],

@@ -1,4 +1,5 @@
-import { Book } from "./Book";
+import { Book } from "./book";
+import { Meta } from "./common";
 
 export interface Category {
   id: number;
@@ -9,17 +10,25 @@ export interface Category {
   books?: Book[];
 }
 
+export interface CategoryMetaData {
+  data: Category[];
+  meta: Meta;
+}
+
 interface CategorySectionBlock {
   __component: string;
   id: string;
   bookcategory: [
     {
+      id: string;
       category: Category;
     }
   ];
 }
 
 export interface CategorySection {
-  id: string;
-  blocks: CategorySectionBlock[];
+  data: {
+    id: string;
+    blocks: CategorySectionBlock[];
+  };
 }

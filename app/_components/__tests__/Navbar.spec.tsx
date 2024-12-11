@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import Navbar from "../Navbar";
 import { fetchDataFromStrapi } from "../../../utils/strapi.utils";
-import { Category } from "../../../types/Category";
+import { Category } from "../../../types/category";
 
 jest.mock("../../../utils/strapi.utils");
 

@@ -1,4 +1,4 @@
-import { Category } from "@/types/Category";
+import { Category } from "@/types/category";
 import { dm_serif_text } from "../fonts";
 import Link from "next/link";
 

@@ -1,24 +1,39 @@
 "use client";
-import { Category } from "@/types/Category";
+
+import { getCategories } from "@/data/loaders";
+import { Category } from "@/types/category";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function Sidebar({ categories }: { categories: Category[] }) {
-  const sortedCategories = categories.sort((a, b) =>
-    a.title.localeCompare(b.title)
-  );
+export default function Sidebar() {
+  const [categories, setCategories] = useState<Category[]>([]);
 
-  const [visibleCount, setVisibleCount] = useState(16);
-
-  const handleShowMore = () => {
-    setVisibleCount((prevCount) => prevCount + 16);
-  };
+  useEffect(() => {
+    async function fetchCategories() {
+      const res = await getCategories();
+      const { data } = res;
+      setCategories(data);
+    }
+    fetchCategories();
+  }, []);
 
   return (
     <aside className="border-r border-solid hidden lg:block lg:min-w-[16%] p-4">
       <nav>
         <h4 className="font-semibold text-base">Categories</h4>
         <ul className="flex flex-col font-light text-sm">
+          {categories.map((category) => (
+            <li key={category.id} className="hover:text-amber-400">
+              <Link
+                href="categories/[slug]"
+                as={`/categories/${category.slug}`}
+              >
+                {category.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        {/* <ul className="flex flex-col font-light text-sm">
           {sortedCategories.slice(0, visibleCount).map((category) => (
             <li key={category.id} className="hover:text-amber-400">
               <Link
@@ -37,7 +52,7 @@ export default function Sidebar({ categories }: { categories: Category[] }) {
           >
             Afficher plus
           </button>
-        )}
+        )} */}
       </nav>
     </aside>
   );

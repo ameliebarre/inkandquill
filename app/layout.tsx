@@ -4,8 +4,8 @@ import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 import { dm_sans, dm_serif_text } from "./fonts";
 import Navbar from "./_components/Navbar";
-import { Category } from "@/types/Category";
-import { fetchDataFromStrapi } from "@/services/utils";
+import { CategoryMetaData } from "@/types/category";
+import { getCategories } from "@/data/loaders";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +17,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const categories: Category[] = await fetchDataFromStrapi("categories");
+  const { data }: CategoryMetaData = await getCategories();
 
   return (
     <html
@@ -27,7 +27,7 @@ export default async function RootLayout({
       <body>
         <main>
           <Header />
-          <Navbar categories={categories} />
+          <Navbar categories={data} />
           {children}
           <Footer />
         </main>

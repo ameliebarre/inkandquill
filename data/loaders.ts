@@ -55,15 +55,12 @@ export async function getCategoriesSection(): Promise<CategorySection> {
   return fetchData(url.href);
 }
 
-export async function getCategories(
-  currentPage: number = 1
-): Promise<CategoryMetaData> {
-  const PAGE_SIZE = 16;
+export async function getCategories(): Promise<CategoryMetaData> {
+  const PAGE_SIZE = 100; // Big value to display all the categories at once
   const query = qs.stringify({
     sort: ["title:asc"],
     pagination: {
       pageSize: PAGE_SIZE,
-      page: currentPage,
     },
   });
   const url = new URL("/api/categories", baseUrl);

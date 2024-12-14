@@ -10,8 +10,8 @@ export default function Sidebar() {
 
   useEffect(() => {
     async function fetchCategories() {
-      const res = await getCategories();
-      const { data } = res;
+      const response = await getCategories();
+      const { data } = response;
       setCategories(data);
     }
     fetchCategories();
@@ -22,7 +22,7 @@ export default function Sidebar() {
       <nav>
         <h4 className="font-semibold text-base">Categories</h4>
         <ul className="flex flex-col font-light text-sm">
-          {categories.map((category) => (
+          {categories?.map((category) => (
             <li key={category.id} className="hover:text-amber-400">
               <Link
                 href="categories/[slug]"
@@ -33,26 +33,6 @@ export default function Sidebar() {
             </li>
           ))}
         </ul>
-        {/* <ul className="flex flex-col font-light text-sm">
-          {sortedCategories.slice(0, visibleCount).map((category) => (
-            <li key={category.id} className="hover:text-amber-400">
-              <Link
-                href="categories/[slug]"
-                as={`/categories/${category.slug}`}
-              >
-                {category.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        {visibleCount < sortedCategories.length && (
-          <button
-            onClick={handleShowMore}
-            className="font-semibold text-sm hover:underline"
-          >
-            Afficher plus
-          </button>
-        )} */}
       </nav>
     </aside>
   );

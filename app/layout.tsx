@@ -4,7 +4,6 @@ import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 import { dm_sans, dm_serif_text } from "./fonts";
 import Navbar from "./_components/Navbar";
-import { CategoryMetaData } from "@/types/category";
 import { getCategories } from "@/data/loaders";
 
 export const metadata: Metadata = {
@@ -17,7 +16,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { data }: CategoryMetaData = await getCategories();
+  const { data } = await getCategories();
 
   return (
     <html

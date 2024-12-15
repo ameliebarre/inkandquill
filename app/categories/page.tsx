@@ -3,7 +3,7 @@ import Breadcrumb from "@/app/_components/Breadcrumb";
 import { CategorySection } from "@/types/category";
 import { getCategoriesSection } from "@/data/loaders";
 import { getStrapiMedia } from "@/lib/utils";
-import { StrapiImage } from "../_components/custom/strapi-image";
+import { StrapiImage } from "../_components/StrapiImage";
 
 export default async function CategoriesPage() {
   const categories: CategorySection = await getCategoriesSection();

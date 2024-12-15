@@ -1,6 +1,7 @@
 import qs from "qs";
 import { getStrapiURL } from "@/lib/utils";
-import { CategoryMetaData, CategorySection } from "@/types/category";
+import { Category, CategorySection } from "@/types/category";
+import { MetaData } from "@/types/common";
 
 const baseUrl = getStrapiURL();
 
@@ -15,8 +16,23 @@ async function fetchData(url: string) {
   }
 }
 
-export async function getCategoryBySlug(slug: string) {
-  return fetchData(`${baseUrl}/api/categories/${slug}`);
+export async function getCategoryBySlug(
+  slug: string
+): Promise<MetaData<Category>> {
+  const url = new URL(`/api/categories/${slug}`, baseUrl);
+
+  url.search = qs.stringify({
+    populate: {
+      books: {
+        populate: {
+          image: {
+            fields: ["url", "alternativeText"],
+          },
+        },
+      },
+    },
+  });
+  return fetchData(url.href);
 }
 
 export async function getCategoriesSection(): Promise<CategorySection> {
@@ -55,7 +71,7 @@ export async function getCategoriesSection(): Promise<CategorySection> {
   return fetchData(url.href);
 }
 
-export async function getCategories(): Promise<CategoryMetaData> {
+export async function getCategories(): Promise<MetaData<Category[]>> {
   const PAGE_SIZE = 100; // Big value to display all the categories at once
   const query = qs.stringify({
     sort: ["title:asc"],

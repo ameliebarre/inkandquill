@@ -13,3 +13,8 @@ export interface Meta {
     total: number;
   };
 }
+
+export interface MetaData<T> {
+  data: T;
+  meta: Meta;
+}

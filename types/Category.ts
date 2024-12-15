@@ -1,5 +1,4 @@
 import { Book } from "./book";
-import { Meta } from "./common";
 
 export interface Category {
   id: number;
@@ -8,11 +7,6 @@ export interface Category {
   slug: string;
   featured: boolean;
   books?: Book[];
-}
-
-export interface CategoryMetaData {
-  data: Category[];
-  meta: Meta;
 }
 
 interface CategorySectionBlock {

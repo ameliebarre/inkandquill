@@ -18,7 +18,7 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <aside className="border-r border-solid hidden lg:block lg:min-w-[16%] p-4">
+    <aside className="hidden lg:block lg:min-w-[16%] p-4">
       <nav>
         <h4 className="font-semibold text-base">Categories</h4>
         <ul className="flex flex-col font-light text-sm">

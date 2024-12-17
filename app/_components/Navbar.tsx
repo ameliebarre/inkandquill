@@ -1,11 +1,8 @@
-import { Category } from "@/types/Category";
-import { fetchDataFromStrapi } from "@/utils/strapi.utils";
+import { Category } from "@/types/category";
 import { dm_serif_text } from "../fonts";
 import Link from "next/link";
 
-export default async function Navbar() {
-  const categories: Category[] = await fetchDataFromStrapi("categories");
-
+export default function Navbar({ categories }: { categories: Category[] }) {
   const featuredCategories = categories.filter(
     (category: Category) => category.featured
   );

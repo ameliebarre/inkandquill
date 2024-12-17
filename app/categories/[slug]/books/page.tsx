@@ -1,4 +1,3 @@
-import Breadcrumb from "@/app/_components/Breadcrumb";
 import { getCategories, getPaginatedBooksByCategory } from "@/data/loaders";
 import { dm_serif_text } from "@/app/fonts";
 import { StrapiImage } from "@/app/_components/StrapiImage";
@@ -35,8 +34,7 @@ export default async function CategoryBooksPage({
   const PAGE_SIZE = 28;
 
   return (
-    <div className="px-[52px] min-w-[84%] border-l border-solid">
-      <Breadcrumb />
+    <>
       <h2 className={`${dm_serif_text.className} text-2xl`}>
         <span className="capitalize">{slug}</span> Books
       </h2>
@@ -51,7 +49,7 @@ export default async function CategoryBooksPage({
               />
             </div>
             <div>
-              <h4 className="text-sm font-semibold line-clamp-2">
+              <h4 className="text-sm font-semibold line-clamp-1">
                 {book.title}
               </h4>
               <h5 className="text-sm line-clamp-1">{book.author}</h5>
@@ -64,6 +62,6 @@ export default async function CategoryBooksPage({
         page={meta.pagination.page}
         pageSize={PAGE_SIZE}
       />
-    </div>
+    </>
   );
 }

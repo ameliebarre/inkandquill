@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Breadcrumb from "@/app/_components/Breadcrumb";
 import { CategorySection } from "@/types/category";
 import { getCategoriesSection } from "@/data/loaders";
 import { getStrapiMedia } from "@/lib/utils";
@@ -21,40 +20,37 @@ export default async function CategoriesPage() {
   });
 
   return (
-    <div className="px-[52px] w-full lg:w-[84%] border-l-[#dcdcdc]">
-      <Breadcrumb />
-      <div className="mt-6 flex flex-col gap-6">
-        {filteredCategories.map((bookCategory) => (
-          <div key={bookCategory.id} className="flex flex-col gap-1">
-            <h3 className="text-sm font-semibold">{bookCategory.title}</h3>
-            <div className="grid grid-cols-7 gap-2">
-              {bookCategory.books?.map((book) => (
-                <div className="flex flex-col gap-3" key={book.id}>
-                  <div className="relative w-full aspect-[3/4]">
-                    <StrapiImage
-                      alt={book.image.alternativeText ?? "no alternative text"}
-                      src={getStrapiMedia(book.image.url)}
-                      fill
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-semibold line-clamp-2">
-                      {book.title}
-                    </h4>
-                    <h5 className="text-sm line-clamp-1">{book.author}</h5>
-                  </div>
+    <div className="mt-6 flex flex-col gap-6">
+      {filteredCategories.map((bookCategory) => (
+        <div key={bookCategory.id} className="flex flex-col gap-1">
+          <h3 className="text-md font-bold">{bookCategory.title}</h3>
+          <div className="grid grid-cols-7 gap-2">
+            {bookCategory.books?.map((book) => (
+              <div className="flex flex-col gap-3" key={book.id}>
+                <div className="relative w-full aspect-[3/4]">
+                  <StrapiImage
+                    alt={book.image.alternativeText ?? "no alternative text"}
+                    src={getStrapiMedia(book.image.url)}
+                    fill
+                  />
                 </div>
-              ))}
-            </div>
-            <Link
-              href={`/categories/${bookCategory.slug}`}
-              className="text-xs underline"
-            >
-              View more {bookCategory.title}
-            </Link>
+                <div>
+                  <h4 className="text-sm font-semibold line-clamp-1">
+                    {book.title}
+                  </h4>
+                  <h5 className="text-sm line-clamp-1">{book.author}</h5>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+          <Link
+            href={`/categories/${bookCategory.slug}`}
+            className="underline text-sm font-semibold mt-2"
+          >
+            View more {bookCategory.title}
+          </Link>
+        </div>
+      ))}
     </div>
   );
 }

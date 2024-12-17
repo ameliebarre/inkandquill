@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Breadcrumb from "@/app/_components/Breadcrumb";
 import { StrapiImage } from "@/app/_components/StrapiImage";
 import { dm_serif_text } from "@/app/fonts";
 import { getCategories, getCategoryBySlug } from "@/data/loaders";
@@ -33,16 +32,19 @@ export default async function CategoryPage({
     .slice(0, 14);
 
   return (
-    <div className="px-[52px] min-w-[84%] border-l border-solid">
-      <Breadcrumb />
+    <>
       <h2 className={`${dm_serif_text.className} text-2xl mb-2`}>
         {data.title}
       </h2>
-      <RichTextRenderer content={data.text} classNames="text-sm mb-2" />
-      <div className="mt-6 flex flex-col gap-4">
+      {data.text ? (
+        <RichTextRenderer content={data.text} classNames="text-sm mb-2" />
+      ) : null}
+      <div className="mt-6 flex flex-col gap-12">
         {newReleasedBooks?.length ? (
           <div className="flex flex-col gap-2">
-            <h3 className="text-sm">New Releases Tagged {data.title}</h3>
+            <h3 className="text-md font-bold">
+              New Releases Tagged {data.title}
+            </h3>
             <div className="grid grid-cols-7 gap-2">
               {newReleasedBooks?.map((book) => (
                 <div className="flex flex-col gap-3" key={book.id}>
@@ -54,7 +56,7 @@ export default async function CategoryPage({
                     />
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold line-clamp-2">
+                    <h4 className="text-sm font-semibold line-clamp-1">
                       {book.title}
                     </h4>
                     <h5 className="text-sm line-clamp-1">{book.author}</h5>
@@ -65,7 +67,7 @@ export default async function CategoryPage({
           </div>
         ) : null}
         <div className="flex flex-col gap-2">
-          <h3 className="text-sm">{data.title} Books</h3>
+          <h3 className="text-md font-bold">{data.title} Books</h3>
           <div className="grid grid-cols-7 gap-2">
             {fictionBooks?.length &&
               fictionBooks.map((book) => (
@@ -78,7 +80,7 @@ export default async function CategoryPage({
                     />
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold line-clamp-2">
+                    <h4 className="text-sm font-semibold line-clamp-1">
                       {book.title}
                     </h4>
                     <h5 className="text-sm line-clamp-1">{book.author}</h5>
@@ -88,12 +90,12 @@ export default async function CategoryPage({
           </div>
           <Link
             href={`/categories/${data.slug}/books`}
-            className="underline text-sm"
+            className="underline text-sm font-semibold mt-2"
           >
             More {data.title.toLowerCase()} books...
           </Link>
         </div>
       </div>
-    </div>
+    </>
   );
 }

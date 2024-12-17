@@ -1,5 +1,4 @@
 import Sidebar from "@/app/_components/Sidebar";
-import { Category } from "@/types/category";
 
 export default async function CategoryLayout({
   children,

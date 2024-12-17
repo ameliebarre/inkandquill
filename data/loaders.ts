@@ -2,6 +2,7 @@ import qs from "qs";
 import { getStrapiURL } from "@/lib/utils";
 import { Category, CategorySection } from "@/types/category";
 import { MetaData } from "@/types/common";
+import { Book } from "@/types/book";
 
 const baseUrl = getStrapiURL();
 
@@ -32,6 +33,33 @@ export async function getCategoryBySlug(
       },
     },
   });
+  return fetchData(url.href);
+}
+
+export async function getPaginatedBooksByCategory(
+  slug: string,
+  page: number,
+  pageSize: number
+): Promise<MetaData<Book[]>> {
+  const url = new URL(`/api/books`, baseUrl);
+
+  url.search = qs.stringify({
+    populate: {
+      image: {
+        fields: ["url", "alternativeText"],
+      },
+    },
+    filters: {
+      categories: {
+        slug: { $eq: slug },
+      },
+    },
+    pagination: {
+      page,
+      pageSize,
+    },
+  });
+
   return fetchData(url.href);
 }
 

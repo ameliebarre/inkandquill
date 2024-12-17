@@ -18,3 +18,15 @@ export interface MetaData<T> {
   data: T;
   meta: Meta;
 }
+
+export interface RichTextChild {
+  type: string;
+  text: string;
+  bold?: boolean;
+  italic?: boolean;
+}
+
+export interface RichTextBlock {
+  type: string;
+  children: Array<RichTextChild>;
+}

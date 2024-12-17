@@ -4,6 +4,7 @@ import { StrapiImage } from "@/app/_components/StrapiImage";
 import { dm_serif_text } from "@/app/fonts";
 import { getCategories, getCategoryBySlug } from "@/data/loaders";
 import { getStrapiMedia } from "@/lib/utils";
+import { RichTextRenderer } from "@/app/_components/RichTextRenderer";
 
 export async function generateStaticParams() {
   const { data } = await getCategories();
@@ -34,7 +35,10 @@ export default async function CategoryPage({
   return (
     <div className="px-[52px] min-w-[84%] border-l border-solid">
       <Breadcrumb />
-      <h2 className={`${dm_serif_text.className} text-2xl`}>{data.title}</h2>
+      <h2 className={`${dm_serif_text.className} text-2xl mb-2`}>
+        {data.title}
+      </h2>
+      <RichTextRenderer content={data.text} classNames="text-sm mb-2" />
       <div className="mt-6 flex flex-col gap-4">
         {newReleasedBooks?.length ? (
           <div className="flex flex-col gap-2">

@@ -27,7 +27,7 @@ export default async function CategoryPage({
     ?.filter((book) => book.isNewRelease)
     .slice(0, 14);
 
-  const fictionBooks = data.books
+  const otherBooks = data.books
     ?.filter((book) => !book.isNewRelease)
     .slice(0, 14);
 
@@ -64,13 +64,19 @@ export default async function CategoryPage({
                 </div>
               ))}
             </div>
+            <Link
+              href={`/categories/${data.slug}/new-releases`}
+              className="underline text-sm font-semibold mt-2"
+            >
+              More new releases tagged {data.title.toLowerCase()} ...
+            </Link>
           </div>
         ) : null}
-        <div className="flex flex-col gap-2">
-          <h3 className="text-md font-bold">{data.title} Books</h3>
-          <div className="grid grid-cols-7 gap-2">
-            {fictionBooks?.length &&
-              fictionBooks.map((book) => (
+        {otherBooks?.length ? (
+          <div className="flex flex-col gap-2">
+            <h3 className="text-md font-bold">{data.title} Books</h3>
+            <div className="grid grid-cols-7 gap-2">
+              {otherBooks.map((book) => (
                 <div className="flex flex-col gap-3" key={book.id}>
                   <div className="relative w-full aspect-[3/4]">
                     <StrapiImage
@@ -87,14 +93,15 @@ export default async function CategoryPage({
                   </div>
                 </div>
               ))}
+            </div>
+            <Link
+              href={`/categories/${data.slug}/books`}
+              className="underline text-sm font-semibold mt-2"
+            >
+              More {data.title.toLowerCase()} books...
+            </Link>
           </div>
-          <Link
-            href={`/categories/${data.slug}/books`}
-            className="underline text-sm font-semibold mt-2"
-          >
-            More {data.title.toLowerCase()} books...
-          </Link>
-        </div>
+        ) : null}
       </div>
     </>
   );

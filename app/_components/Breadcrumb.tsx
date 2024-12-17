@@ -15,6 +15,13 @@ export default function Breadcrumb() {
   const paths = usePathname();
   const pathNames = paths.split("/").filter((path) => path);
 
+  const formatBreadcrumbName = (name: string) => {
+    return name
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
+
   return (
     <ShadcnBreadcrumb>
       <BreadcrumbList>
@@ -26,7 +33,7 @@ export default function Breadcrumb() {
         {pathNames.length > 0 && <BreadcrumbSeparator />}
         {pathNames.map((link, index) => {
           const href = `/${pathNames.slice(0, index + 1).join("/")}`;
-          const linkName = link[0].toUpperCase() + link.slice(1, link.length);
+          const linkName = formatBreadcrumbName(link);
           const isLastPath = pathNames.length === index + 1;
 
           return (

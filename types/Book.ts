@@ -1,5 +1,11 @@
 import { Image } from "./Image";
 
+interface Author {
+  id: number;
+  name: string;
+  role: string;
+}
+
 interface BookSummary {
   type: string;
   children: {
@@ -12,7 +18,7 @@ interface BookSummary {
 export interface Book {
   id: number;
   title: string;
-  author: string;
+  authors: Author[];
   summary: BookSummary[];
   isbn: string;
   price: number;

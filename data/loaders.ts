@@ -29,6 +29,7 @@ export async function getCategoryBySlug(
           image: {
             fields: ["url", "alternativeText"],
           },
+          authors: true,
         },
       },
     },
@@ -48,6 +49,7 @@ export async function getPaginatedBooksByCategory(
       image: {
         fields: ["url", "alternativeText"],
       },
+      authors: true,
     },
     filters: {
       categories: {
@@ -78,11 +80,12 @@ export async function getCategoriesSection(): Promise<CategorySection> {
                     fields: ["title", "slug"],
                     populate: {
                       books: {
-                        fields: ["title", "author", "isNewRelease"],
+                        fields: ["title", "price", "isNewRelease"],
                         populate: {
                           image: {
                             fields: ["url", "alternativeText"],
                           },
+                          authors: true,
                         },
                       },
                     },

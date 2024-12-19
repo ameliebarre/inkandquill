@@ -90,9 +90,19 @@ export function PaginationWithLinks({
 
     if (totalPageCount <= maxVisiblePages) {
       for (let i = 1; i <= totalPageCount; i++) {
+        const isActive = page === i;
+
         items.push(
           <PaginationItem key={i}>
-            <PaginationLink href={buildLink(i)} isActive={page === i}>
+            <PaginationLink
+              className={
+                isActive
+                  ? "bg-amber-400 hover:bg-amber-400 border-none text-black"
+                  : ""
+              }
+              href={isActive ? undefined : buildLink(i)}
+              isActive={page === i}
+            >
               {i}
             </PaginationLink>
           </PaginationItem>
@@ -101,7 +111,16 @@ export function PaginationWithLinks({
     } else {
       items.push(
         <PaginationItem key={1}>
-          <PaginationLink href={buildLink(1)} isActive={page === 1}>
+          <PaginationLink
+            href={page === 1 ? undefined : buildLink(1)}
+            aria-current={page === 1 ? "page" : undefined}
+            isActive={page === 1}
+            className={
+              page === 1
+                ? "bg-amber-400 hover:bg-amber-400 border-none text-black pointer-events-none"
+                : undefined
+            }
+          >
             1
           </PaginationLink>
         </PaginationItem>
@@ -121,7 +140,15 @@ export function PaginationWithLinks({
       for (let i = start; i <= end; i++) {
         items.push(
           <PaginationItem key={i}>
-            <PaginationLink href={buildLink(i)} isActive={page === i}>
+            <PaginationLink
+              href={buildLink(i)}
+              isActive={page === i}
+              className={
+                page === i
+                  ? "bg-amber-400 hover:bg-amber-400 border-none text-black"
+                  : undefined
+              }
+            >
               {i}
             </PaginationLink>
           </PaginationItem>
@@ -141,6 +168,11 @@ export function PaginationWithLinks({
           <PaginationLink
             href={buildLink(totalPageCount)}
             isActive={page === totalPageCount}
+            className={
+              page === totalPageCount
+                ? "bg-amber-400 hover:bg-amber-400 border-none text-black"
+                : undefined
+            }
           >
             {totalPageCount}
           </PaginationLink>

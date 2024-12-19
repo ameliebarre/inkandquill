@@ -114,3 +114,18 @@ export async function getCategories(): Promise<MetaData<Category[]>> {
   url.search = query;
   return fetchData(url.href);
 }
+
+export async function getBook(slug: string): Promise<MetaData<Book>> {
+  const query = qs.stringify({
+    populate: {
+      image: {
+        fields: ["url", "alternativeText"],
+      },
+      authors: true,
+    },
+  });
+
+  const url = new URL(`/api/books/${slug}`, baseUrl);
+  url.search = query;
+  return fetchData(url.href);
+}

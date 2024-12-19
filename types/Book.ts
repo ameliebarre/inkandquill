@@ -28,5 +28,5 @@ export interface Book {
   language: string;
   publicationDate: string;
   bookSerieNumber?: boolean;
-  image: Image;
+  image: Image[];
 }

@@ -23,7 +23,7 @@ export default async function CategoriesPage() {
       {filteredCategories.map((bookCategory) => (
         <div key={bookCategory.id} className="flex flex-col gap-1">
           <h3 className="text-md font-bold">{bookCategory.title}</h3>
-          <div className="grid grid-cols-6 gap-2">
+          <div className="grid grid-cols-6 gap-3">
             {bookCategory.books?.map((book) => (
               <BookCard key={book.id} book={book} />
             ))}

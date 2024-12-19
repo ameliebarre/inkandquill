@@ -16,6 +16,7 @@ export function StrapiImage({
   height,
   width,
   className,
+  fill = false,
 }: Readonly<StrapiImageProps>) {
   const imageUrl = getStrapiMedia(src);
   if (!imageUrl) return null;
@@ -27,7 +28,7 @@ export function StrapiImage({
       height={height}
       width={width}
       className={className}
-      fill
+      fill={fill}
     />
   );
 }

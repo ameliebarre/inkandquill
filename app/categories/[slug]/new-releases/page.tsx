@@ -39,7 +39,7 @@ export default async function CategoryBooksPage({
       <h2 className={`${dm_serif_text.className} text-2xl`}>
         <span className="capitalize">{slug}</span> New Releases
       </h2>
-      <div className="mt-6 mb-12 grid grid-cols-6 gap-2">
+      <div className="mt-6 mb-12 grid grid-cols-6 gap-3">
         {newReleasedBooks.map((book) => (
           <BookCard key={book.id} book={book} />
         ))}

@@ -8,8 +8,6 @@ import { Button } from "../components/ui/button";
 export function BookCard({ book }: { book: Book }) {
   const imageUrl = getStrapiMedia(book.image[0].url);
 
-  console.log("BOOK IMAGE : ", book.image[0].url);
-
   if (!imageUrl) return null;
 
   return (

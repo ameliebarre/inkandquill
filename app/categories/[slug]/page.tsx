@@ -22,8 +22,6 @@ export default async function CategoryPage({
   const { slug } = await params;
   const { data } = await getCategoryBySlug(slug);
 
-  console.log("DATA : ", data);
-
   const newReleasedBooks = data.books
     ?.filter((book) => book.isNewRelease)
     .slice(0, 12);

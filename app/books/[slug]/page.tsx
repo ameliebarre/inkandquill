@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { getBook } from "@/data/loaders";
 import { getStrapiMedia } from "@/lib/utils";
+import { Slider } from "@/app/_components/Slider/Slider";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function BookPage({
@@ -16,18 +16,12 @@ export default async function BookPage({
   if (!imageUrl) return null;
 
   return (
-    <div className="flex gap-8 flex-row mt-[74px] mb-[32px] px-[252px] flex-nowrap">
-      <div className="w-[30%]">
-        <Image
-          src={imageUrl}
-          alt={book.image[0].alternativeText ?? "no alternative text"}
-          layout="responsive"
-          width={3}
-          height={4}
-        />
+    <div className="max-w-[1440px] mt-[74px] mb-[32px] ml-auto mr-auto flex flex-row gap-4">
+      <div className="flex flex-col w-2/5 border-solid border-gray-200 rounded-2xl border py-7">
+        <Slider sliderImage={book.image} />
       </div>
-      <div className="w-[70%]">
-        <p>Test</p>
+      <div className="bg-green-800 h-[50px] w-3/5">
+        <p>Test 2</p>
       </div>
     </div>
   );

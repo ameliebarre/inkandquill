@@ -1,8 +1,9 @@
 import qs from "qs";
+
 import { getStrapiURL } from "@/lib/utils";
+import { Book } from "@/types/book";
 import { Category, CategorySection } from "@/types/category";
 import { MetaData } from "@/types/common";
-import { Book } from "@/types/book";
 
 const baseUrl = getStrapiURL();
 
@@ -122,6 +123,7 @@ export async function getBook(slug: string): Promise<MetaData<Book>> {
         fields: ["url", "alternativeText"],
       },
       authors: true,
+      categories: true,
     },
   });
 

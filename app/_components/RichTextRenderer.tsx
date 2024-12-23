@@ -1,17 +1,20 @@
-import { RichTextBlock } from "@/types/common";
 import React from "react";
+
+import { RichTextBlock } from "@/types/common";
 
 interface RichTextRendererProps {
   content: RichTextBlock[];
   classNames?: string;
+  classNamesContainer?: string;
 }
 
 export const RichTextRenderer = ({
   content,
   classNames,
+  classNamesContainer,
 }: RichTextRendererProps) => {
   return (
-    <div>
+    <div className={classNamesContainer}>
       {content.map((paragraph, index) => (
         <p key={index} className={classNames}>
           {paragraph.children.map((child, childIndex) => {

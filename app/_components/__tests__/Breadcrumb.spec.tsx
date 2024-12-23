@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import Breadcrumb from "../Breadcrumb";
 import { usePathname } from "next/navigation";
+
+import Breadcrumb from "../Breadcrumb";
 import "@testing-library/jest-dom";
 
 jest.mock("next/navigation", () => ({

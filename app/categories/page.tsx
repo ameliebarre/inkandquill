@@ -1,5 +1,5 @@
-import { CategorySection } from "@/types/category";
 import { getCategoriesSection } from "@/data/loaders";
+import { CategorySection } from "@/types/category";
 import { BookCard } from "../_components/BookCard";
 import { ButtonLink } from "../_components/ButtonLink";
 

@@ -1,6 +1,7 @@
+import Link from "next/link";
+
 import { Category } from "@/types/category";
 import { dm_serif_text } from "../fonts";
-import Link from "next/link";
 
 export default function Navbar({ categories }: { categories: Category[] }) {
   const featuredCategories = categories.filter(

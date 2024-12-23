@@ -1,8 +1,9 @@
-import Link from "next/link";
-import { BsFillBasket2Fill } from "react-icons/bs";
 import Image from "next/image";
-import { Book } from "@/types/book";
+import Link from "next/link";
+import { BsFillBasket2Fill as BasketIcon } from "react-icons/bs";
+
 import { getStrapiMedia } from "@/lib/utils";
+import { Book } from "@/types/book";
 import { Button } from "../components/ui/button";
 
 export function BookCard({ book }: { book: Book }) {
@@ -36,7 +37,7 @@ export function BookCard({ book }: { book: Book }) {
         <div className="flex justify-between items-center text-slate-800 border-t border-solid border-t-gray-300 p-3">
           <span className="text-base font-semibold">{book.price} $</span>
           <Button className="bg-amber-400 hover:bg-amber-500 rounded-full px-6 shadow-none">
-            <BsFillBasket2Fill />
+            <BasketIcon />
           </Button>
         </div>
       </div>

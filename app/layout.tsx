@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./_components/Header";
-import Footer from "./_components/Footer";
-import { dm_sans, dm_serif_text } from "./fonts";
-import Navbar from "./_components/Navbar";
+import type { Metadata } from "next";
 import { getCategories } from "@/data/loaders";
+import Footer from "./_components/Footer";
+import Header from "./_components/Header";
+import Navbar from "./_components/Navbar";
+import { dm_sans, dm_serif_text } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",

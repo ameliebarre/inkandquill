@@ -1,3 +1,5 @@
+import { Category } from "./category";
+import { RichTextBlock } from "./common";
 import { Image } from "./Image";
 
 interface Author {
@@ -6,20 +8,11 @@ interface Author {
   role: string;
 }
 
-interface BookSummary {
-  type: string;
-  children: {
-    type: string;
-    text: string;
-    bold?: boolean;
-  };
-}
-
 export interface Book {
   id: number;
   title: string;
   authors: Author[];
-  summary: BookSummary[];
+  summary: RichTextBlock[];
   isbn: string;
   price: number;
   isNewRelease: boolean;
@@ -29,4 +22,8 @@ export interface Book {
   publicationDate: string;
   bookSerieNumber?: boolean;
   image: Image[];
+  categories: Category[];
+  firstPublicationDate: string;
+  editor: string;
+  format: "Paperback" | "Hardcover" | "eBook" | "Kindle Edition";
 }

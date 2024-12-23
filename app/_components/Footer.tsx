@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { dm_serif_text } from "../fonts";
 import { FaLongArrowAltRight } from "react-icons/fa";
+
+import { dm_serif_text } from "../fonts";
 
 export default function Footer() {
   const categories = [

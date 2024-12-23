@@ -1,8 +1,8 @@
-import { dm_serif_text } from "@/app/fonts";
-import { getCategories, getCategoryBySlug } from "@/data/loaders";
-import { RichTextRenderer } from "@/app/_components/RichTextRenderer";
 import { BookCard } from "@/app/_components/BookCard";
 import { ButtonLink } from "@/app/_components/ButtonLink";
+import { RichTextRenderer } from "@/app/_components/RichTextRenderer";
+import { dm_serif_text } from "@/app/fonts";
+import { getCategories, getCategoryBySlug } from "@/data/loaders";
 
 export async function generateStaticParams() {
   const { data } = await getCategories();

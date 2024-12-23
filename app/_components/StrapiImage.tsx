@@ -1,6 +1,6 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import { getStrapiMedia } from "@/lib/utils";
+import { getStrapiMedia } from '@/lib/utils';
 
 interface StrapiImageProps {
   src: string | null;
@@ -20,7 +20,7 @@ export function StrapiImage({
   fill = false,
 }: Readonly<StrapiImageProps>) {
   const imageUrl = getStrapiMedia(src);
-  if (!imageUrl) return null;
+  if (!imageUrl) {return null;}
 
   return (
     <Image

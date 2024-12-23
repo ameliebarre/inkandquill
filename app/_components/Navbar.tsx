@@ -1,7 +1,7 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import { Category } from "@/types/category";
-import { dm_serif_text } from "../fonts";
+import { Category } from '@/types/category';
+import { dm_serif_text } from '../fonts';
 
 export default function Navbar({ categories }: { categories: Category[] }) {
   const featuredCategories = categories.filter(
@@ -18,7 +18,7 @@ export default function Navbar({ categories }: { categories: Category[] }) {
         {featuredCategories.map((category: Category) => (
           <li
             key={category.id}
-            className={`hover:text-amber-400 flex-grow border-r border-r-[#af9d69] border-solid last:border-r-0 text-center`}
+            className={'hover:text-amber-400 flex-grow border-r border-r-[#af9d69] border-solid last:border-r-0 text-center'}
           >
             <Link href="categories/[slug]" as={`/categories/${category.slug}`}>
               {category.title}

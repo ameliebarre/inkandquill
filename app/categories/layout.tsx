@@ -1,5 +1,5 @@
-import Sidebar from "@/app/_components/Sidebar";
-import Breadcrumb from "../_components/Breadcrumb";
+import Sidebar from '@/app/_components/Sidebar';
+import Breadcrumb from '../_components/Breadcrumb';
 
 export default async function CategoryLayout({
   children,

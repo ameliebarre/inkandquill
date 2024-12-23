@@ -1,7 +1,7 @@
-import { BookCard } from "@/app/_components/BookCard";
-import { PaginationWithLinks } from "@/app/_components/PaginationWithLinks";
-import { dm_serif_text } from "@/app/fonts";
-import { getCategories, getPaginatedBooksByCategory } from "@/data/loaders";
+import { BookCard } from '@/app/_components/BookCard';
+import { PaginationWithLinks } from '@/app/_components/PaginationWithLinks';
+import { dm_serif_text } from '@/app/fonts';
+import { getCategories, getPaginatedBooksByCategory } from '@/data/loaders';
 
 export async function generateStaticParams() {
   const { data } = await getCategories();

@@ -1,76 +1,76 @@
-import Link from "next/link";
-import { FaLongArrowAltRight } from "react-icons/fa";
+import Link from 'next/link';
+import { FaLongArrowAltRight } from 'react-icons/fa';
 
-import { dm_serif_text } from "../fonts";
+import { dm_serif_text } from '../fonts';
 
 export default function Footer() {
   const categories = [
     {
       id: 1,
-      label: "Art",
+      label: 'Art',
     },
     {
       id: 2,
-      label: "Biography",
+      label: 'Biography',
     },
     {
       id: 3,
-      label: "Business",
+      label: 'Business',
     },
     {
       id: 4,
-      label: "Children's",
+      label: 'Children\'s',
     },
     {
       id: 5,
-      label: "Classics",
+      label: 'Classics',
     },
     {
       id: 6,
-      label: "Comics",
+      label: 'Comics',
     },
     {
       id: 7,
-      label: "Contemporary",
+      label: 'Contemporary',
     },
     {
       id: 8,
-      label: "Cookbooks",
+      label: 'Cookbooks',
     },
     {
       id: 9,
-      label: "Crime",
+      label: 'Crime',
     },
     {
       id: 10,
-      label: "Ebooks",
+      label: 'Ebooks',
     },
     {
       id: 11,
-      label: "Fantasy",
+      label: 'Fantasy',
     },
   ];
 
   const practicalInformations = [
     {
       id: 1,
-      label: "Who we are",
+      label: 'Who we are',
     },
     {
       id: 2,
-      label: "Terms and conditions",
+      label: 'Terms and conditions',
     },
     {
       id: 3,
-      label: "Legal notice",
+      label: 'Legal notice',
     },
     {
       id: 4,
-      label: "Personal data",
+      label: 'Personal data',
     },
     {
       id: 5,
-      label: "Manage my cookies",
+      label: 'Manage my cookies',
     },
   ];
 
@@ -99,7 +99,7 @@ export default function Footer() {
             {categories.map((category) => (
               <li key={category.id}>{category.label}</li>
             ))}
-            <li>See all categories {">"}</li>
+            <li>See all categories {'>'}</li>
           </ul>
         </div>
         <div className="flex flex-col flex-1 gap-y-2">

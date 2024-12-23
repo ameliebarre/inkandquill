@@ -1,7 +1,7 @@
-import { getCategoriesSection } from "@/data/loaders";
-import { CategorySection } from "@/types/category";
-import { BookCard } from "../_components/BookCard";
-import { ButtonLink } from "../_components/ButtonLink";
+import { getCategoriesSection } from '@/data/loaders';
+import { CategorySection } from '@/types/category';
+import { BookCard } from '../_components/BookCard';
+import { ButtonLink } from '../_components/ButtonLink';
 
 export default async function CategoriesPage() {
   const categories: CategorySection = await getCategoriesSection();

@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 const PriceNumber = ({ number }: { number: number }) => {
-  const [integerPart, fractionalPart] = number.toString().split(".");
+  const [integerPart, fractionalPart] = number.toString().split('.');
 
   return (
     <div className="flex tems-baseline">

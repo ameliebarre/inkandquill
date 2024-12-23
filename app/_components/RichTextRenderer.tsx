@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { RichTextBlock } from "@/types/common";
+import { RichTextBlock } from '@/types/common';
 
 interface RichTextRendererProps {
   content: RichTextBlock[];

@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { PropsWithChildren } from "react";
+import Link from 'next/link';
+import { PropsWithChildren } from 'react';
 
-import { Button } from "../components/ui/button";
+import { Button } from '../components/ui/button';
 
 interface ButtonLinkProps {
   source: string;

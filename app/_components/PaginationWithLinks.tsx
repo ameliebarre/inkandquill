@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { type ReactNode, useCallback } from "react";
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { type ReactNode, useCallback } from 'react';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 import {
   Pagination,
   PaginationContent,
@@ -12,14 +12,14 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "../components/ui/pagination";
+} from '../components/ui/pagination';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../components/ui/select";
+} from '../components/ui/select';
 
 export interface PaginationWithLinksProps {
   pageSizeSelectOptions?: {
@@ -59,8 +59,8 @@ export function PaginationWithLinks({
 
   const buildLink = useCallback(
     (newPage: number) => {
-      const key = pageSearchParam || "page";
-      if (!searchParams) return `${pathname}?${key}=${newPage}`;
+      const key = pageSearchParam || 'page';
+      if (!searchParams) {return `${pathname}?${key}=${newPage}`;}
       const newSearchParams = new URLSearchParams(searchParams);
       newSearchParams.set(key, String(newPage));
       return `${pathname}?${newSearchParams.toString()}`;
@@ -70,10 +70,10 @@ export function PaginationWithLinks({
 
   const navToPageSize = useCallback(
     (newPageSize: number) => {
-      const key = pageSizeSelectOptions?.pageSizeSearchParam || "pageSize";
+      const key = pageSizeSelectOptions?.pageSizeSearchParam || 'pageSize';
       const newSearchParams = new URLSearchParams(searchParams || undefined);
       newSearchParams.set(key, String(newPageSize));
-      newSearchParams.delete(pageSearchParam || "page"); // Clear the page number when changing page size
+      newSearchParams.delete(pageSearchParam || 'page'); // Clear the page number when changing page size
       router.push(`${pathname}?${newSearchParams.toString()}`);
     },
     [
@@ -98,8 +98,8 @@ export function PaginationWithLinks({
             <PaginationLink
               className={
                 isActive
-                  ? "bg-amber-400 hover:bg-amber-400 border-none text-black"
-                  : ""
+                  ? 'bg-amber-400 hover:bg-amber-400 border-none text-black'
+                  : ''
               }
               href={isActive ? undefined : buildLink(i)}
               isActive={page === i}
@@ -114,11 +114,11 @@ export function PaginationWithLinks({
         <PaginationItem key={1}>
           <PaginationLink
             href={page === 1 ? undefined : buildLink(1)}
-            aria-current={page === 1 ? "page" : undefined}
+            aria-current={page === 1 ? 'page' : undefined}
             isActive={page === 1}
             className={
               page === 1
-                ? "bg-amber-400 hover:bg-amber-400 border-none text-black pointer-events-none"
+                ? 'bg-amber-400 hover:bg-amber-400 border-none text-black pointer-events-none'
                 : undefined
             }
           >
@@ -146,7 +146,7 @@ export function PaginationWithLinks({
               isActive={page === i}
               className={
                 page === i
-                  ? "bg-amber-400 hover:bg-amber-400 border-none text-black"
+                  ? 'bg-amber-400 hover:bg-amber-400 border-none text-black'
                   : undefined
               }
             >
@@ -171,7 +171,7 @@ export function PaginationWithLinks({
             isActive={page === totalPageCount}
             className={
               page === totalPageCount
-                ? "bg-amber-400 hover:bg-amber-400 border-none text-black"
+                ? 'bg-amber-400 hover:bg-amber-400 border-none text-black'
                 : undefined
             }
           >
@@ -195,7 +195,7 @@ export function PaginationWithLinks({
           />
         </div>
       )}
-      <Pagination className={cn({ "md:justify-end": pageSizeSelectOptions })}>
+      <Pagination className={cn({ 'md:justify-end': pageSizeSelectOptions })}>
         <PaginationContent className="max-sm:gap-0">
           <PaginationItem>
             <PaginationPrevious
@@ -203,7 +203,7 @@ export function PaginationWithLinks({
               aria-disabled={page === 1}
               tabIndex={page === 1 ? -1 : undefined}
               className={
-                page === 1 ? "pointer-events-none opacity-50" : undefined
+                page === 1 ? 'pointer-events-none opacity-50' : undefined
               }
             />
           </PaginationItem>
@@ -215,7 +215,7 @@ export function PaginationWithLinks({
               tabIndex={page === totalPageCount ? -1 : undefined}
               className={
                 page === totalPageCount
-                  ? "pointer-events-none opacity-50"
+                  ? 'pointer-events-none opacity-50'
                   : undefined
               }
             />

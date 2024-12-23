@@ -1,15 +1,17 @@
-import Image from "next/image";
-import Link from "next/link";
-import { BsFillBasket2Fill as BasketIcon } from "react-icons/bs";
+import Image from 'next/image';
+import Link from 'next/link';
+import { BsFillBasket2Fill as BasketIcon } from 'react-icons/bs';
 
-import { getStrapiMedia } from "@/lib/utils";
-import { Book } from "@/types/book";
-import { Button } from "../components/ui/button";
+import { getStrapiMedia } from '@/lib/utils';
+import { Book } from '@/types/book';
+import { Button } from '../components/ui/button';
 
 export function BookCard({ book }: { book: Book }) {
   const imageUrl = getStrapiMedia(book.image[0].url);
 
-  if (!imageUrl) return null;
+  if (!imageUrl) {
+    return null;
+  }
 
   return (
     <div
@@ -20,7 +22,7 @@ export function BookCard({ book }: { book: Book }) {
         <Link href={`/books/${book.slug}`}>
           <Image
             src={imageUrl}
-            alt={book.image[0].alternativeText ?? "no alternative text"}
+            alt={book.image[0].alternativeText ?? 'no alternative text'}
             className="w-full h-full rounded-md object-cover"
             width={300}
             height={400}

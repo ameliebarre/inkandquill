@@ -131,3 +131,36 @@ export async function getBook(slug: string): Promise<MetaData<Book>> {
   url.search = query;
   return fetchData(url.href);
 }
+
+export async function getSimilarBooks(
+  bookId: number,
+  categories: Category[]
+): Promise<MetaData<Book[]>> {
+  const categorySlugs = categories.map((category) => category.slug);
+
+  const query = qs.stringify(
+    {
+      filters: {
+        categories: {
+          slug: {
+            $in: categorySlugs,
+          },
+        },
+        id: {
+          $ne: bookId,
+        },
+      },
+      populate: ['categories', 'image', 'authors'],
+      pagination: {
+        page: 1,
+        pageSize: 6,
+      },
+    },
+    { encodeValuesOnly: true }
+  );
+
+  const url = new URL('/api/books', baseUrl);
+  url.search = query;
+
+  return fetchData(url.href);
+}

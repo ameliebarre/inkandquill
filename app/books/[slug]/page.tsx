@@ -4,6 +4,7 @@ import { FaCheck as Check } from 'react-icons/fa6';
 
 import PriceNumber from '@/app/_components/PriceNumber';
 import { RichTextRenderer } from '@/app/_components/RichTextRenderer';
+import YouMayAlsoLikedFunction from '@/app/_components/YouMayAlsoLikedSection';
 import { dm_serif_text } from '@/app/fonts';
 import { getBook } from '@/data/loaders';
 import { getStrapiMedia } from '@/lib/utils';
@@ -30,8 +31,8 @@ export default async function BookPage({
     <div className="px-[52px] mt-[74px] mb-[32px] ml-auto mr-auto">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-x-10">
         <div className="md:col-span-4 md:col-start-2">
-          <div className="relative max-w-[400px] z-0 md:sticky md:top-40 lg:top-44 xl:top-60">
-            <div className="w-[300px] aspect-[4/3]">
+          <div className="relative max-w-[400px] z-0 md:sticky top-4">
+            <div className="max-w-[300px] aspect-[4/3]">
               <Image
                 src={imageUrl}
                 alt={book.image[0].alternativeText ?? 'no alternative text'}
@@ -142,6 +143,9 @@ export default async function BookPage({
               </div>
             </div>
           </div>
+        </div>
+        <div className="md:col-span-10 md:col-start-2 mt-10">
+          <YouMayAlsoLikedFunction book={book} />
         </div>
       </div>
     </div>

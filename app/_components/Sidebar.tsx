@@ -1,9 +1,10 @@
-"use client";
+'use client';
 
-import { getCategories } from "@/data/loaders";
-import { Category } from "@/types/category";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+
+import { getCategories } from '@/data/loaders';
+import { Category } from '@/types/category';
 
 export default function Sidebar() {
   const [categories, setCategories] = useState<Category[]>([]);

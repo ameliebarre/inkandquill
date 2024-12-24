@@ -1,5 +1,8 @@
-"use client";
-import { Fragment } from "react";
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Fragment } from 'react';
+
 import {
   BreadcrumbItem,
   BreadcrumbList,
@@ -7,19 +10,17 @@ import {
   Breadcrumb as ShadcnBreadcrumb,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/app/components/ui/breadcrumb";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+} from '@/app/components/ui/breadcrumb';
 
 export default function Breadcrumb() {
   const paths = usePathname();
-  const pathNames = paths.split("/").filter((path) => path);
+  const pathNames = paths.split('/').filter((path) => path);
 
   const formatBreadcrumbName = (name: string) => {
     return name
-      .split("-")
+      .split('-')
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
+      .join(' ');
   };
 
   return (
@@ -32,7 +33,7 @@ export default function Breadcrumb() {
         </BreadcrumbItem>
         {pathNames.length > 0 && <BreadcrumbSeparator />}
         {pathNames.map((link, index) => {
-          const href = `/${pathNames.slice(0, index + 1).join("/")}`;
+          const href = `/${pathNames.slice(0, index + 1).join('/')}`;
           const linkName = formatBreadcrumbName(link);
           const isLastPath = pathNames.length === index + 1;
 

@@ -1,8 +1,7 @@
-import Link from "next/link";
-import { CategorySection } from "@/types/category";
-import { getCategoriesSection } from "@/data/loaders";
-import { getStrapiMedia } from "@/lib/utils";
-import { StrapiImage } from "../_components/StrapiImage";
+import { getCategoriesSection } from '@/data/loaders';
+import { CategorySection } from '@/types/category';
+import { BookCard } from '../_components/BookCard';
+import { ButtonLink } from '../_components/ButtonLink';
 
 export default async function CategoriesPage() {
   const categories: CategorySection = await getCategoriesSection();
@@ -10,7 +9,7 @@ export default async function CategoriesPage() {
 
   const filteredCategories = bookCategories.map((bookCategory) => {
     const filteredBooks = bookCategory.category.books
-      ?.slice(0, 8)
+      ?.slice(0, 6)
       .filter((book) => book.isNewRelease);
 
     return {
@@ -24,31 +23,14 @@ export default async function CategoriesPage() {
       {filteredCategories.map((bookCategory) => (
         <div key={bookCategory.id} className="flex flex-col gap-1">
           <h3 className="text-md font-bold">{bookCategory.title}</h3>
-          <div className="grid grid-cols-7 gap-2">
+          <div className="grid grid-cols-6 gap-3">
             {bookCategory.books?.map((book) => (
-              <div className="flex flex-col gap-3" key={book.id}>
-                <div className="relative w-full aspect-[3/4]">
-                  <StrapiImage
-                    alt={book.image.alternativeText ?? "no alternative text"}
-                    src={getStrapiMedia(book.image.url)}
-                    fill
-                  />
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold line-clamp-1">
-                    {book.title}
-                  </h4>
-                  <h5 className="text-sm line-clamp-1">{book.author}</h5>
-                </div>
-              </div>
+              <BookCard key={book.id} book={book} />
             ))}
           </div>
-          <Link
-            href={`/categories/${bookCategory.slug}`}
-            className="underline text-sm font-semibold mt-2"
-          >
+          <ButtonLink source={`/categories/${bookCategory.slug}`}>
             View more {bookCategory.title}
-          </Link>
+          </ButtonLink>
         </div>
       ))}
     </div>
